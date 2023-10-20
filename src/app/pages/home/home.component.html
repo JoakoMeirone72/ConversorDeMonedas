@@ -1,0 +1,56 @@
+<div class="container">
+    <header>
+        <img id="header" src="./../../../assets/img/littleHeader.png">
+    </header>
+    <div class="container-general">
+        <div class="subs">
+            <button id="button-sub" [routerLink]="['/subs']" routerLinkActive="router-link-active">
+                <img src="./../../../assets/img/star.png">
+                <p>Suscripción {{MostrarSub}}</p>
+            </button>
+            <p>Conversiones disponibles: xxx</p>
+        </div>
+        <div class="converter">
+            <button id="verMonedas" [routerLink]="['/coins']" routerLink="router-link-active">
+                <p>Ver Monedas</p>
+            </button>
+            <div class="input">
+                <input type="number">
+                <p>|</p>
+                <div class="dropdown" [class.open]="isDropdownOpen1" (click)="toggleDropdown1()">
+                    <div class="dropdown-toggle">
+                        {{ selectedOption1 }}
+                        <span class="arrow" [class.open]="isDropdownOpen1">&#9660;</span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let favoption of favsoptions" (click)="selectOption1(favoption)"><img src="./../../../assets/img/star.png">{{ favoption }}</li>
+                        <li *ngFor="let option of options" (click)="selectOption1(option)">{{ option }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input">
+                <div id="space"></div>
+                <div class="dropdown2" [class.open]="isDropdownOpen2" (click)="toggleDropdown2()">
+                    <div class="dropdown-toggle">
+                        {{ selectedOption2 }}
+                        <span class="arrow" [class.open]="isDropdownOpen2">&#9660;</span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let favoption of favsoptions" (click)="selectOption2(favoption)"><img src="./../../../assets/img/star.png">{{ favoption }}</li>
+                        <li *ngFor="let option of options" (click)="selectOption2(option)">{{ option }}</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="convertir">
+                <p>Convertir</p><img src="./../../../assets/img/converser.png">
+            </button>
+        </div>
+        <div class="resultado">
+            <p id="primeralinea">1 {{ selectedOption1 }} equivale a</p>
+            <p id="segundalinea">0.002 {{ selectedOption2 }}</p>
+        </div>
+    </div>
+    <footer>
+        <img id="footer" src="./../../../assets/img/littleFooter.png">
+    </footer>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <header>
+        <img id="header" src="./../../../assets/img/Header.png">
+    </header>
+    <div class="container-form">
+        <h1>Registro de Usuario</h1>
+        <form>
+            <input type="text" name="user" id="user" placeholder="Usuario" required>
+            <input type="text" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <input type="re-password" name="re-password" id="re-password" placeholder="Repetir Contraseña" required>
+            <button type="submit" [routerLink]="['/login']" routerLinkActive="router-link-active">Registrarse</button>
+        </form>
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active">Ya tengo una cuenta</a>
+    </div>
+    <footer>
+        <img id="footer" src="./../../../assets/img/Footer.png">
+    </footer>
+</div>

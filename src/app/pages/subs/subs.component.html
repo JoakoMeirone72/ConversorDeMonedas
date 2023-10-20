@@ -1,0 +1,22 @@
+<div class="container">
+    <header>
+        <img src="./../../../assets/img/littleHeader.png">
+    </header>
+    <div class="container-general">
+        <button class="sub" id="pro" (click)="EleccionSub('Pro')" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <h1>Suscripción Pro <img src="./../../../assets/img/star.png"></h1>
+            <p>- Sin límites de conversión</p>
+        </button>
+        <button class="sub" id="trial" (click)="EleccionSub('Trial')" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <h1>Suscripción Trial <img src="./../../../assets/img/star.png"></h1>
+            <p>- 100 Conversiones</p>
+        </button>
+        <button class="sub" id="free" (click)="EleccionSub('Free')" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <h2>Continuar con <br>
+                suscripción free</h2>
+        </button>
+    </div>
+    <footer>
+        <img src="./../../../assets/img/littleFooter.png">
+    </footer>
+</div>
