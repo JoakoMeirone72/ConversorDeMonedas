@@ -8,11 +8,24 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent {
 
+  //input número
+
+  inputValue: number | null = null;
+
+  updateValue(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.inputValue = value ? parseFloat(value) : null;
+  }
+
+  //tipo de sub
+
   MostrarSub: string = "";
 
   constructor(private dataService: DataService) {
     this.MostrarSub = this.dataService.SubSelected;
 }
+
+ //función desplegable + opcion elegida
 
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
@@ -23,10 +36,16 @@ export class HomeComponent {
 
   toggleDropdown1() {
     this.isDropdownOpen1 = !this.isDropdownOpen1;
+    if (this.isDropdownOpen2 = true){
+      this.isDropdownOpen2 = false
+    }
   }
 
   toggleDropdown2() {
     this.isDropdownOpen2 = !this.isDropdownOpen2;
+    if (this.isDropdownOpen1 = true){
+      this.isDropdownOpen1 = false
+    }
   }
 
   selectOption1(option: string) {

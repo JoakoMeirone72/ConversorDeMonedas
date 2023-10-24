@@ -15,7 +15,7 @@
                 <p>Ver Monedas</p>
             </button>
             <div class="input">
-                <input type="number">
+                <input type="number" [value]="inputValue" (input)="updateValue($event)">
                 <p>|</p>
                 <div class="dropdown" [class.open]="isDropdownOpen1" (click)="toggleDropdown1()">
                     <div class="dropdown-toggle">
@@ -46,7 +46,7 @@
             </button>
         </div>
         <div class="resultado">
-            <p id="primeralinea">1 {{ selectedOption1 }} equivale a</p>
+            <p id="primeralinea">{{inputValue}} {{ selectedOption1 }} equivale a</p>
             <p id="segundalinea">0.002 {{ selectedOption2 }}</p>
         </div>
     </div>
