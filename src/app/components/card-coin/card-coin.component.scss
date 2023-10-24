@@ -1,0 +1,19 @@
+@use './../../../assets/styles/variables.scss';
+
+.card-coin {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid white;
+    border-radius: 10px;
+    background: variables.$color-background;
+
+    p {
+        color: white;
+        font-size: x-large;
+    }
+
+    span {
+        color: white;
+        font-size: x-large;
+    }
+}

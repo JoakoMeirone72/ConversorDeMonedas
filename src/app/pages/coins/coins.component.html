@@ -1,31 +1,35 @@
 <div class="container">
-    <div id="favorite">
-        <div class="titulo">
-            <h1>Favoritas <img src="./../../../assets/img/star.png"></h1>
-            <button>Añadir +</button>
-        </div>
-        <div class="container-monedas">
-            <div *ngFor="let moneda of monedas" class="moneda">
-                <!-- <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin> -->
+    <div class="container-general">
+        <div class="categoria">
+            <div class="titulo">
+                <h1>Favoritas <img src="./../../../assets/img/star.png"></h1>
+                <button>Añadir +</button>
+            </div>
+            <div class="container-monedas">
+                <div *ngFor="let moneda of monedas" class="moneda">
+                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="custom">
-        <div class="titulo">
-            <h1>Mis Monedas</h1>
-            <button>Añadir +</button>
-        </div>
-        <div class="container-monedas">
-            <div *ngFor="let moneda of monedas" class="moneda">
-                <!-- <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin> -->
+        <div class="categoria">
+            <div class="titulo">
+                <h1>Mis Monedas</h1>
+                <button>Crear +</button>
+            </div>
+            <div class="container-monedas">
+                <div *ngFor="let moneda of monedas" class="moneda">
+                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="default">
-        <h1>Por Defecto</h1>
-        <div class="container-monedas">
-            <div *ngFor="let moneda of monedas" class="moneda">
-                <!-- <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin> -->
+        <div class="categoria">
+            <div id="titulo-solo">
+                <h1>Por Defecto</h1>
+            </div>
+            <div class="container-monedas">
+                <div *ngFor="let moneda of monedas" class="moneda">
+                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                </div>
             </div>
         </div>
     </div>
