@@ -14,7 +14,11 @@
         <div class="categoria">
             <div class="titulo">
                 <h1>Mis Monedas</h1>
-                <button>Crear +</button>
+                <button (click)="dialogCreateCoin.showModal()">Crear +</button>
+                    
+                <dialog #dialogCreateCoin>
+                    <app-create-coin (cerrar)="dialogCreateCoin.close()"></app-create-coin>
+                </dialog>
             </div>
             <div class="container-monedas">
                 <div *ngFor="let moneda of monedas" class="moneda">

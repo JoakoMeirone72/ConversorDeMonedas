@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CoinsRoutingModule } from './coins-routing.module';
 import { CoinsComponent } from './coins.component';
 import { CardCoinComponent } from 'src/app/components/card-coin/card-coin.component';
+import { CreateCoinComponent } from 'src/app/components/create-coin/create-coin.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CardCoinComponent } from 'src/app/components/card-coin/card-coin.compon
   imports: [
     CommonModule,
     CoinsRoutingModule,
-    CardCoinComponent
+    CardCoinComponent,
+    CreateCoinComponent
   ]
 })
 export class CoinsModule { }
