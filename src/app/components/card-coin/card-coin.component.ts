@@ -10,5 +10,5 @@ import { Moneda } from 'src/app/interfaces/Moneda';
   styleUrls: ['./card-coin.component.scss']
 })
 export class CardCoinComponent {
-  @Input({required:true}) moneda!:Moneda;
+  @Input({required:false}) moneda!:Moneda;
 }

@@ -1,20 +1,84 @@
 import { Injectable } from '@angular/core';
 import { Moneda } from '../interfaces/Moneda';
 import { API } from '../constants/api';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoinsService {
+export class CoinsService extends ApiService {
+
+  async convert(amount:number, fromconvert:number, toconvert:number){
+    const url = `${API}Coin/Convertir?amount=${amount}&ICfromConvert=${fromconvert}&ICtoConvert=${toconvert}`;
+    const res = await fetch(url, 
+      {
+        method:'GET',
+      headers:{
+        "Content-type":"application/json",
+        Authorization: "Bearer "+this.auth.token
+      }
+      })
+      return res.ok
+  }
 
   async create(moneda:Moneda):Promise<boolean>{
-    const res = await fetch(API+'contactos',{
+    if(moneda.id) return false;
+    const res = await fetch(API+'Coin/CrearMoneda',{
       method:'POST',
       headers:{
-        "Content-type":"application/json"
+        "Content-type":"application/json",
+        Authorization: "Bearer "+this.auth.token
       },
       body: JSON.stringify(moneda)
     })
     return res.ok
   };
+
+  async edit(moneda:Moneda):Promise<boolean>{
+    if(!moneda.id) return false;
+    const id = moneda.id
+    const url = `${API}Coin/EditarMoneda?CoinId=${id}`
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers:{
+        "Content-type":"application/json",
+        Authorization: "Bearer "+this.auth.token
+      },
+      body: JSON.stringify(moneda)
+    })
+    return res.ok
+  };
+
+  async delete(id:number):Promise<boolean>{
+    const res = await fetch(API+'Coin/EliminarMoneda/'+ id, {
+      method: 'DELETE',
+      headers:{
+        Authorization: "Bearer "+this.auth.token,
+      }
+    })
+    return res.ok
+  };
+
+  async createFav(moneda:Moneda):Promise<boolean>{
+    const res = await fetch(API+'Coin/AgregarFavorita',{
+      method:'POST',
+      headers:{
+        "Content-type":"application/json",
+        Authorization: "Bearer "+this.auth.token
+      },
+      body: JSON.stringify(moneda)
+    })
+    return res.ok
+  };
+
+  async deleteFav(id:number):Promise<boolean>{
+    const url = `${API}Coin/EditarMoneda?CoinId=${id}`
+    const res = await fetch(url, {
+      method: 'DELETE',
+      headers:{
+        Authorization: "Bearer "+this.auth.token
+      }
+    })
+    return res.ok
+  }
 }

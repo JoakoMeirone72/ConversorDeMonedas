@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Moneda } from 'src/app/interfaces/Moneda';
 
 @Component({
   selector: 'app-coin-detail',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./coin-detail.component.scss']
 })
 export class CoinDetailComponent {
-
 }
