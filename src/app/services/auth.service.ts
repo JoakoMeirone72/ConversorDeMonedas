@@ -26,7 +26,6 @@ export class AuthService {
       })
       if(!res.ok) return false;
       const tokenRecibido = await res.text()
-      console.log("LOGUEANDO",tokenRecibido)
       localStorage.setItem("token",tokenRecibido);
       this.token.set(tokenRecibido);
       return true;
@@ -39,6 +38,9 @@ export class AuthService {
   async register(registerData: RegisterData){
     const res = await fetch(API+"User/Registro", {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(registerData)
     });
     console.log("REGISTRANDO",res)

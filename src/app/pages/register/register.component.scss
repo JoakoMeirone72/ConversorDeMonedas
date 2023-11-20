@@ -44,13 +44,19 @@ header {
         width: 70%;
         place-items: center;
 
+        .input-container {
+            width: 100%;
+        }
+
         input {
             width: 100%;
+            font-size: large;
             border: none;
             outline: none;
             background: none;
             border-bottom: 1px solid variables.$inputs;
             transition: transform 0.3s ease;
+            color: white;
 
         }
         input::placeholder{
@@ -63,9 +69,24 @@ header {
             transform: scale(1.01);
         }
 
+        p {
+            text-align: center;
+            color: variables.$error-color;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        #error-registro{
+            font-size: 15px;
+        }
+
+        #register-button-container {
+            width: 80%;
+        }
+
         button {
             height: 40px;
-            width: 80%;
+            width: 100%;
             margin-top: 10px;
             font-size: 26px;
             color: white;
