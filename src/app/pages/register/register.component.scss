@@ -95,6 +95,9 @@ header {
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            &[disabled]{
+                filter: grayscale(80%);
+            }
         }
 
         button:active {

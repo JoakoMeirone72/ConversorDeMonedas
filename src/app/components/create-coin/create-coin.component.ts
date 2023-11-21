@@ -18,7 +18,7 @@ export class CreateCoinComponent {
     id: 0,
     leyenda: '',
     simbolo: '',
-    ic: ''
+    ic: 0
   }
 
   async onSubmit() {

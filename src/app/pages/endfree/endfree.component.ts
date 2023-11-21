@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ViewService } from 'src/app/services/view.service';
 
 @Component({
   selector: 'app-endfree',
@@ -8,9 +9,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class EndfreeComponent {
   
-  constructor(private dataService: DataService) {}
+  viewService = inject(ViewService)
+  router = inject(Router)
 
-  EleccionSub(sub: string) {
-    this.dataService.SubSelected = sub;
+  ChangeSub(sub:Number){
+    this.viewService.cambiarSub(sub).then(res => {
+      if(res){
+        this.router.navigate(['/home'])
+      }
+    })
   }
 }

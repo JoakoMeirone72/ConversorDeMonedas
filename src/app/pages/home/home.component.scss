@@ -139,6 +139,9 @@ header {
             color: white;
             font-size: 23px;
 
+            &[disabled]{
+                filter: grayscale(80%);
+            }
             img {
                 margin-left: 7px;
                 height: 20px;

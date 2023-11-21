@@ -8,7 +8,7 @@
                 <img src="./../../../assets/img/star.png">
                 <p>Suscripción {{MostrarSub}}</p>
             </button>
-            <p>Conversiones disponibles: xxx</p>
+            <p>Conversiones disponibles: {{MostrarConversiones}}</p>
         </div>
         <div class="converter">
             <button id="verMonedas" [routerLink]="['/coins']" routerLink="router-link-active">
@@ -23,8 +23,9 @@
                         <span class="arrow" [class.open]="isDropdownOpen1">&#9660;</span>
                     </div>
                     <ul class="dropdown-menu">
-                        <li *ngFor="let favoption of favsoptions" (click)="selectOption1(favoption)"><img src="./../../../assets/img/star.png">{{ favoption }}</li>
-                        <li *ngFor="let option of options" (click)="selectOption1(option)">{{ option }}</li>
+                        <li *ngFor="let monedafavorita of MonedasFavoritas" (click)="selectOption1(monedafavorita)"><img src="./../../../assets/img/star.png">{{ monedafavorita.simbolo }}</li>
+                        <li *ngFor="let monedausuario of MonedasUsuario" (click)="selectOption1(monedausuario)">{{ monedausuario.simbolo }}</li>
+                        <li *ngFor="let monedadefalut of MonedasDefault" (click)="selectOption1(monedadefalut)">{{ monedadefalut.simbolo }}</li>
                     </ul>
                 </div>
             </div>
@@ -36,18 +37,19 @@
                         <span class="arrow" [class.open]="isDropdownOpen2">&#9660;</span>
                     </div>
                     <ul class="dropdown-menu">
-                        <li *ngFor="let favoption of favsoptions" (click)="selectOption2(favoption)"><img src="./../../../assets/img/star.png">{{ favoption }}</li>
-                        <li *ngFor="let option of options" (click)="selectOption2(option)">{{ option }}</li>
+                        <li *ngFor="let monedafavorita of MonedasFavoritas" (click)="selectOption2(monedafavorita)"><img src="./../../../assets/img/star.png">{{ monedafavorita.simbolo }}</li>
+                        <li *ngFor="let monedausuario of MonedasUsuario" (click)="selectOption2(monedausuario)">{{ monedausuario.simbolo }}</li>
+                        <li *ngFor="let monedadefalut of MonedasDefault" (click)="selectOption2(monedadefalut)">{{ monedadefalut.simbolo }}</li>
                     </ul>
                 </div>
             </div>
-            <button id="convertir">
+            <button id="convertir" [disabled]="ICfromConvert === 0 || ICtoConvert === 0" (click)="Convertir(inputValue, ICfromConvert, ICtoConvert)">
                 <p>Convertir</p><img src="./../../../assets/img/converser.png">
             </button>
         </div>
         <div class="resultado">
             <p id="primeralinea">{{inputValue}} {{ selectedOption1 }} equivale a</p>
-            <p id="segundalinea">0.002 {{ selectedOption2 }}</p>
+            <p id="segundalinea">{{resultado}} {{ selectedOption2 }}</p>
         </div>
     </div>
     <footer>

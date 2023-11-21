@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ViewService } from 'src/app/services/view.service';
 
 @Component({
   selector: 'app-subs',
@@ -8,10 +9,32 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class SubsComponent {
   
-  constructor(private dataService: DataService) {}
+  viewService = inject(ViewService)
+  router = inject(Router)
 
-  EleccionSub(sub: string) {
-    this.dataService.SubSelected = sub;
+  Sub:string = "";
+
+  ngOnInit(): void {
+    this.viewService.verSub().then(res => {
+      this.Sub = res;
+    })
   }
+
+  ButtonClick(suscripcion:string, opcion:number) {
+    if (this.Sub === suscripcion) {
+      this.router.navigate(['/home']);
+    } else {
+      this.ChangeSub(opcion);
+    }
+  }
+
+  ChangeSub(sub:Number){
+    this.viewService.cambiarSub(sub).then(res => {
+      if(res){
+        this.router.navigate(['/home'])
+      }
+    })
+  }
+
 }
 

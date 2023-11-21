@@ -8,17 +8,31 @@ import { ApiService } from './api.service';
 })
 export class CoinsService extends ApiService {
 
-  async convert(amount:number, fromconvert:number, toconvert:number){
+  async convert(amount: number, fromconvert: number, toconvert: number) {
     const url = `${API}Coin/Convertir?amount=${amount}&ICfromConvert=${fromconvert}&ICtoConvert=${toconvert}`;
-    const res = await fetch(url, 
-      {
-        method:'GET',
-      headers:{
-        "Content-type":"application/json",
-        Authorization: "Bearer "+this.auth.token
+  
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: 'Bearer ' + this.auth.token(),
+        },
+      });
+  
+      if (!response.ok) {
+        console.error('Error en la solicitud');
+        return "-2" //numeros negativos son mis "status code" personalizados por asi decirlo 
       }
-      })
-      return res.ok
+  
+      const resultText = await response.text();
+      return resultText;
+      
+    } catch (error) {
+      console.error('Error al realizar la solicitud');
+      return "-2"
+
+    }
   }
 
   async create(moneda:Moneda):Promise<boolean>{
