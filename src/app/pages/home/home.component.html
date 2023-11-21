@@ -15,7 +15,7 @@
                 <p>Ver Monedas</p>
             </button>
             <div class="input">
-                <input type="number" [value]="inputValue" (input)="updateValue($event)">
+                <input type="number" autocomplete="off" [value]="inputValue" (input)="updateValue($event)">
                 <p>|</p>
                 <div class="dropdown" [class.open]="isDropdownOpen1" (click)="toggleDropdown1()">
                     <div class="dropdown-toggle">
