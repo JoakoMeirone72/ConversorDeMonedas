@@ -3,11 +3,10 @@
         <div class="categoria">
             <div class="titulo">
                 <h1>Favoritas <img src="./../../../assets/img/star.png"></h1>
-                <button>Añadir +</button>
             </div>
             <div class="container-monedas">
-                <div *ngFor="let moneda of monedas" class="moneda">
-                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                <div *ngFor="let monedafavorita of MonedasFavoritas" class="moneda">
+                    <app-card-coin [moneda]="monedafavorita"></app-card-coin>
                 </div>
             </div>
         </div>
@@ -21,18 +20,18 @@
                 </dialog>
             </div>
             <div class="container-monedas">
-                <div *ngFor="let moneda of monedas" class="moneda">
-                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                <div *ngFor="let monedausuario of MonedasUsuario" class="moneda">
+                    <app-card-coin [moneda]="monedausuario" [routerLink]="[monedausuario.id]"></app-card-coin>
                 </div>
             </div>
         </div>
         <div class="categoria">
-            <div id="titulo-solo">
+            <div class="titulo">
                 <h1>Por Defecto</h1>
             </div>
             <div class="container-monedas">
-                <div *ngFor="let moneda of monedas" class="moneda">
-                    <app-card-coin [moneda]="moneda" [routerLink]="[moneda.id]"></app-card-coin>
+                <div *ngFor="let monedadefault of MonedasDefault" class="moneda">
+                    <app-card-coin [moneda]="monedadefault"></app-card-coin>
                 </div>
             </div>
         </div>

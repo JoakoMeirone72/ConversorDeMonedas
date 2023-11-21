@@ -1,19 +1,22 @@
 @use './../../../assets/styles/variables.scss';
 
 .card-coin {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    place-items: center;
     border: 2px solid white;
     border-radius: 10px;
-    background: variables.$color-background;
+    background: variables.$input-coin-color;
 
     p {
         color: white;
-        font-size: x-large;
+        margin: 0;
+        font-size: 20px;
     }
 
     span {
         color: white;
-        font-size: x-large;
+        font-size: 25px;
     }
 }

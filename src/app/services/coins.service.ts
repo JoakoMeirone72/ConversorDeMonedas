@@ -41,7 +41,7 @@ export class CoinsService extends ApiService {
       method:'POST',
       headers:{
         "Content-type":"application/json",
-        Authorization: "Bearer "+this.auth.token
+        Authorization: "Bearer "+this.auth.token()
       },
       body: JSON.stringify(moneda)
     })
@@ -56,7 +56,7 @@ export class CoinsService extends ApiService {
       method: 'PUT',
       headers:{
         "Content-type":"application/json",
-        Authorization: "Bearer "+this.auth.token
+        Authorization: "Bearer "+this.auth.token()
       },
       body: JSON.stringify(moneda)
     })
@@ -67,7 +67,7 @@ export class CoinsService extends ApiService {
     const res = await fetch(API+'Coin/EliminarMoneda/'+ id, {
       method: 'DELETE',
       headers:{
-        Authorization: "Bearer "+this.auth.token,
+        Authorization: "Bearer "+this.auth.token()
       }
     })
     return res.ok
@@ -78,7 +78,7 @@ export class CoinsService extends ApiService {
       method:'POST',
       headers:{
         "Content-type":"application/json",
-        Authorization: "Bearer "+this.auth.token
+        Authorization: "Bearer "+this.auth.token()
       },
       body: JSON.stringify(moneda)
     })
@@ -90,7 +90,7 @@ export class CoinsService extends ApiService {
     const res = await fetch(url, {
       method: 'DELETE',
       headers:{
-        Authorization: "Bearer "+this.auth.token
+        Authorization: "Bearer "+this.auth.token()
       }
     })
     return res.ok

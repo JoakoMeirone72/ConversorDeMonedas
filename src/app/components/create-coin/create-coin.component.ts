@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Moneda } from 'src/app/interfaces/Moneda';
 import { CoinsService } from 'src/app/services/coins.service';
 import { FormsModule } from '@angular/forms';
+import { Moneda } from 'src/app/interfaces/Moneda';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-coin',
@@ -12,21 +13,21 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./create-coin.component.scss']
 })
 export class CreateCoinComponent {
+
   coinsService = inject(CoinsService);
+  router = inject(Router);
+
   @Output() cerrar = new EventEmitter();
   @Input() moneda: Moneda = {
     id: 0,
     leyenda: '',
     simbolo: '',
-    ic: 0
+    ic: 0,
   }
 
-  async onSubmit() {
-    this.CreateCoin()
-  }
-
-  async CreateCoin() {
-    const res = await this.coinsService.create(this.moneda);
-    this.cerrar.emit();
+  onSubmit() {
+    this.coinsService.create(this.moneda).then(res => {
+      this.cerrar.emit();
+    });
   }
 }

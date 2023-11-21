@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: ()=> import('./pages/coins/coins.module').then(m => m.CoinsModule) 
   },
   {
+    path: "coins/:id",
+    canActivate: [userLoggedGuard],
+    loadChildren: ()=> import('./pages/coin-detail/coin-detail.module').then(m =>m.CoinDetailModule)
+  },
+  {
     path:"endfree",
     canActivate: [userLoggedGuard],
     loadChildren: ()=> import('./pages/endfree/endfree.module').then(m => m.EndfreeModule) 
