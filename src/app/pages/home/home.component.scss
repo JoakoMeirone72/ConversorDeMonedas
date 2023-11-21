@@ -210,6 +210,22 @@ header {
                         height: 15px;
                         margin-right: 5px;
                     }
+
+                }
+
+                img {
+                    height: 15px;
+                    margin-bottom: -2px;
+                }
+
+                .titulo-moneda {
+                    font-size: 15px;
+                    font-weight: bolder;
+                    text-align: center;
+                    background: variables.$subs-color;
+                    border-bottom: 1px solid grey;
+                    padding: 5px;
+                    margin: 0;
                 }
             }
 
@@ -285,6 +301,20 @@ header {
                         height: 15px;
                         margin-right: 5px;
                     }
+                }
+                img {
+                    height: 15px;
+                    margin-bottom: -2px;
+                }
+
+                .titulo-moneda {
+                    font-size: 15px;
+                    font-weight: bolder;
+                    text-align: center;
+                    background: variables.$subs-color;
+                    border-bottom: 1px solid grey;
+                    padding: 5px;
+                    margin: 0;
                 }
             }
 
