@@ -1,8 +1,11 @@
 <div class="container">
+    <div id="container-favorita">
+        <button id="favorita">Favorita <img src="./../../../assets/img/star.png"></button>
+    </div>
     <div class="moneda">
-        <h1>{{coin.leyenda}}</h1>
+        <h1>{{moneda.leyenda}}</h1>
         <div  class="container-moneda">
-            <app-card-coin [moneda]="coin"></app-card-coin>
+            <app-card-coin [moneda]="moneda"></app-card-coin>
         </div>
     </div>
     <div class="editarmoneda">

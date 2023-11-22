@@ -40,6 +40,6 @@ export class ViewService extends ApiService {
   async getById(id:number):Promise<Moneda | undefined>{
     const res = await this.getAuth(`View/VerMonedaUserById?CoinId=${id}`);
     const resJson = await res.json();
-    return resJson[0];
+    return resJson;
   };
 }
