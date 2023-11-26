@@ -6,8 +6,12 @@
             </div>
             <div class="container-monedas">
                 <div *ngFor="let monedafavorita of MonedasFavoritas" class="moneda">
-                    <app-card-coin [moneda]="monedafavorita"></app-card-coin>
+                    <app-card-coin [moneda]="monedafavorita" (click)="dialogDeleteFav.showModal()"></app-card-coin>
+                    <dialog class="dialogchico" #dialogDeleteFav>
+                        <app-delete-fav [moneda]="monedafavorita" (cerrar)="dialogDeleteFav.close()"></app-delete-fav>
+                    </dialog>
                 </div>
+
             </div>
         </div>
         <div class="categoria">
@@ -31,7 +35,10 @@
             </div>
             <div class="container-monedas">
                 <div *ngFor="let monedadefault of MonedasDefault" class="moneda">
-                    <app-card-coin [moneda]="monedadefault"></app-card-coin>
+                    <app-card-coin [moneda]="monedadefault" (click)="dialogAddFav.showModal()"></app-card-coin>
+                    <dialog class="dialogchico" #dialogAddFav>
+                        <app-add-fav [moneda]="monedadefault" (cerrar)="dialogAddFav.close()"></app-add-fav>
+                    </dialog>
                 </div>
             </div>
         </div>

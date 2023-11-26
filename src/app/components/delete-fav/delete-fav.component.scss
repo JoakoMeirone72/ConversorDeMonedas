@@ -1,0 +1,53 @@
+@use './../../../assets/styles/variables.scss';
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+app-card-coin {
+    margin: 15px 0 15px 0;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+        width: 110px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        font-size: large;
+
+    }
+    
+}
+#eliminar {
+    background-color: variables.$delete-button-color;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+#cancelar {
+    background-color: variables.$button-color;
+    filter: grayscale(80%);
+
+    &:active {
+        transform: scale(0.95);
+    }
+}

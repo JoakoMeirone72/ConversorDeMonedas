@@ -1,1 +1,9 @@
-<p>delete-fav works!</p>
+<div class="container">
+    <p>¿Desea eliminar esta moneda<br>
+        de tus favoritas?</p>
+    <app-card-coin [moneda]="moneda"></app-card-coin>
+    <div id="options">
+        <button type="button" id="eliminar" (click)="deleteFav()">Eliminar</button>
+        <button type="button" id="cancelar" (click)="cerrar.emit()">Cancelar</button>
+    </div>
+</div>

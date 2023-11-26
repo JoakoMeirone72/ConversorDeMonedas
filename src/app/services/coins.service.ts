@@ -86,7 +86,7 @@ export class CoinsService extends ApiService {
   };
 
   async deleteFav(id:number):Promise<boolean>{
-    const url = `${API}Coin/EditarMoneda?CoinId=${id}`
+    const url = `${API}Coin/BorrarFavorita?monedaId=${id}`
     const res = await fetch(url, {
       method: 'DELETE',
       headers:{

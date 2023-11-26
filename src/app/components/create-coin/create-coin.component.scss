@@ -67,7 +67,8 @@ h1 {
     }
 
     #cancelar {
-        background-color: variables.$cancel-button-color;
+        background-color: variables.$button-color;
+        filter: grayscale(80%);
     }
 
 }
