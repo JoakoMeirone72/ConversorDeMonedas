@@ -5,6 +5,7 @@ import { CardCoinComponent } from "../card-coin/card-coin.component";
 import { Router } from '@angular/router';
 import { CoinsService } from 'src/app/services/coins.service';
 import { ViewService } from 'src/app/services/view.service';
+import { mensajeError, mensajeOkey } from 'src/app/helpers/mensajes';
 
 @Component({
     selector: 'app-add-fav',
@@ -37,6 +38,12 @@ export class AddFavComponent {
     addFav(){
       this.coinsService.createFav(this.moneda).then(res => {
         this.cerrar.emit()
+        if (res) {
+          mensajeOkey('Añadida correctamente')
+          this.router.navigate(['/coins'])
+        } else {
+          mensajeError('Error agregando moneda favorita')
+        }
       })
     }
 

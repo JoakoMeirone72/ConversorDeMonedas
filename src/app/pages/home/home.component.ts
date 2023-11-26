@@ -42,7 +42,7 @@ export class HomeComponent {
 
   verTotalConversionesHome(){
     this.viewService.verTotalConversiones().then(res => {
-      if(res == "-1"){
+      if(res < "0"){
         this.MostrarConversiones = "ilimitadas"
       }else{
         this.MostrarConversiones = res;

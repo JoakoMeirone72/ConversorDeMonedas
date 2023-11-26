@@ -5,6 +5,7 @@ import { Moneda } from 'src/app/interfaces/Moneda';
 import { CoinsService } from 'src/app/services/coins.service';
 import { Router } from '@angular/router';
 import { ViewService } from 'src/app/services/view.service';
+import { mensajeError, mensajeOkey } from 'src/app/helpers/mensajes';
 
 @Component({
     selector: 'app-delete-fav',
@@ -16,14 +17,20 @@ import { ViewService } from 'src/app/services/view.service';
 export class DeleteFavComponent {
 
     @Output() cerrar = new EventEmitter();
-    @Input({required:false}) moneda!:Moneda;
+    @Input({ required: false }) moneda!: Moneda;
 
     router = inject(Router)
     coinsService = inject(CoinsService)
 
-    deleteFav(){
+    deleteFav() {
         this.coinsService.deleteFav(this.moneda.id).then(res => {
             this.cerrar.emit()
+            if (res) {
+                mensajeOkey('Eliminada correctamente')
+                this.router.navigate(['/coins'])
+            } else {
+                mensajeError('Error eliminando moneda favorita')
+            }
         })
     }
 }

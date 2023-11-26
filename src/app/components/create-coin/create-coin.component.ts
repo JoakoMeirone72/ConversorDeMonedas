@@ -4,6 +4,7 @@ import { CoinsService } from 'src/app/services/coins.service';
 import { FormsModule } from '@angular/forms';
 import { Moneda } from 'src/app/interfaces/Moneda';
 import { Router } from '@angular/router';
+import { mensajeError, mensajeOkey } from 'src/app/helpers/mensajes';
 
 @Component({
   selector: 'app-create-coin',
@@ -28,6 +29,12 @@ export class CreateCoinComponent {
   onSubmit() {
     this.coinsService.create(this.moneda).then(res => {
       this.cerrar.emit();
+      if (res) {
+        mensajeOkey('Creada correctamente')
+        this.router.navigate(['/coins'])
+      } else {
+        mensajeError('Error creando moneda')
+      }
     });
   }
 }

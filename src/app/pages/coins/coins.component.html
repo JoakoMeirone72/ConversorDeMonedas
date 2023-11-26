@@ -11,6 +11,7 @@
                         <app-delete-fav [moneda]="monedafavorita" (cerrar)="dialogDeleteFav.close()"></app-delete-fav>
                     </dialog>
                 </div>
+                <p class="mensajeMonedas" *ngIf="MonedasFavoritas.length === 0">¡Añade tus monedas favoritas!</p>
 
             </div>
         </div>
@@ -27,6 +28,7 @@
                 <div *ngFor="let monedausuario of MonedasUsuario" class="moneda">
                     <app-card-coin [moneda]="monedausuario" [routerLink]="[monedausuario.id]"></app-card-coin>
                 </div>
+                <p class="mensajeMonedas" *ngIf="MonedasUsuario.length === 0">¡Crea tus propias <br> monedas!</p>
             </div>
         </div>
         <div class="categoria">

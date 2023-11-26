@@ -57,6 +57,7 @@
             font-size: 18px;
             color: white;
             background-color: variables.$button-color;
+            outline: none;
 
         }
     }
@@ -69,6 +70,14 @@
         justify-content: space-between;
         gap: 8px;
         overflow-y: scroll;
+
+        .mensajeMonedas {
+            color: variables.$inputs;
+            font-size: x-large;
+            font-weight: bold;
+            text-align: center;
+            margin: 60px 0 0 0;
+        }
     }
 
     .moneda {

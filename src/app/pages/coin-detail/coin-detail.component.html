@@ -22,7 +22,7 @@
                         <input type="number" autocomplete="off" placeholder="Índice de Convertibilidad" value="moneda.simbolo" [(ngModel)]="editMoneda.ic" name="ic">
                 </div>
                 <div class="options">
-                    <button id="confirmar" type="submit">Confirmar</button>
+                    <button id="confirmar" type="submit" [disabled]="(editMoneda.leyenda.length == 0 || editMoneda.simbolo.length == 0 || editMoneda.ic <= 0)">Confirmar</button>
                 </div>
             </form>
         </div>

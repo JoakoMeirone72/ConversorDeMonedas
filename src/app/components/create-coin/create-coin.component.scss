@@ -64,11 +64,17 @@ h1 {
 
     #crear {   
         background-color: variables.$button-color;
+        outline: none;
+
+        &[disabled] {
+            filter: grayscale(80%);
+        }
     }
 
     #cancelar {
         background-color: variables.$button-color;
         filter: grayscale(80%);
+        outline: none;
     }
 
 }

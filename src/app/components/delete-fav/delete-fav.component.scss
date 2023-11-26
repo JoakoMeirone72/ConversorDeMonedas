@@ -37,6 +37,7 @@ app-card-coin {
 }
 #eliminar {
     background-color: variables.$delete-button-color;
+    outline: none;
 
     &:active {
         transform: scale(0.95);
@@ -46,6 +47,7 @@ app-card-coin {
 #cancelar {
     background-color: variables.$button-color;
     filter: grayscale(80%);
+    outline: none;
 
     &:active {
         transform: scale(0.95);

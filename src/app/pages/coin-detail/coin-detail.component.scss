@@ -32,6 +32,7 @@
     font-weight: bolder;
     place-self: end;
     cursor: pointer;
+    outline: none;
 
     img {
         height: 15px;
@@ -119,10 +120,15 @@ input::placeholder {
         color: white;
         font-size: 20px;
         cursor: pointer;
+        outline: none;
     }
 
     #confirmar {   
         background-color: variables.$button-color;
+
+        &[disabled] {
+            filter: grayscale(80%);
+        }
     }
     
 }
@@ -141,5 +147,6 @@ input::placeholder {
         color: white;
         font-size: 20px;
         cursor: pointer;
+        outline: none;
     }
 }

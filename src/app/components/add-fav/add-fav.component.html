@@ -3,7 +3,7 @@
         como favoritas?</p>
     <app-card-coin [moneda]="moneda"></app-card-coin>
     <div id="options">
-        <button type="button" id="agregar" [disabled]="monedafav.id != 0" (click)="addFav()">Añadir +</button>
+        <button type="button" id="favorita" [disabled]="monedafav.id != 0" (click)="addFav()">Favorita <img src="./../../../assets/img/star.png"></button>
         <button type="button" id="cancelar" (click)="cerrar.emit()">Cancelar</button>
     </div>
 </div>

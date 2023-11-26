@@ -22,24 +22,30 @@ app-card-coin {
     display: flex;
     justify-content: center;
     gap: 20px;
-
-    button {
-        width: 110px;
-        height: 40px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        color: white;
-        font-size: large;
-
-    }
-    
 }
-#agregar {
-    background-color: variables.$button-color;
 
-    &[disabled]{
-        filter: grayscale(80%);
+#favorita {
+    height: 40px;
+    width: 110px;
+    border: 2px solid white;
+    background: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    place-self: end;
+    cursor: pointer;
+    outline: none;
+
+    img {
+        height: 15px;
+        margin-bottom: -2px;
+    }
+
+    &[disabled] {
+        border: 2px solid #c2c0c0;
+        color: #c2c0c0;
+        background-color: #393c3f;
     }
 
     &:active {
@@ -48,11 +54,18 @@ app-card-coin {
 }
 
 #cancelar {
+    width: 110px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: large;
     background-color: variables.$button-color;
     filter: grayscale(80%);
+    outline: none;
 
     &:active {
         transform: scale(0.95);
     }
 }
-
