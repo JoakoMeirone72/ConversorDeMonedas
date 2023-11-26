@@ -21,6 +21,13 @@ export class CoinDetailComponent implements OnInit {
     ic: 0
   }
 
+  editMoneda : Moneda = {
+    id: 0,
+    leyenda: '',
+    simbolo: '',
+    ic: 0
+  }
+
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

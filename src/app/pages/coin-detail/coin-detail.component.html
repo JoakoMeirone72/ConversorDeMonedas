@@ -1,17 +1,34 @@
 <div class="container">
-    <div id="container-favorita">
-        <button id="favorita">Favorita <img src="./../../../assets/img/star.png"></button>
-    </div>
-    <div class="moneda">
-        <h1>{{moneda.leyenda}}</h1>
-        <div  class="container-moneda">
-            <app-card-coin [moneda]="moneda"></app-card-coin>
+    <div id="padding">
+
+        <div id="container-favorita">
+            <button id="favorita">Favorita <img src="./../../../assets/img/star.png"></button>
         </div>
-    </div>
-    <div class="editarmoneda">
-
-    </div>
-    <div class="eliminarmoneda">
-
+        <div class="moneda">
+            <h1>{{moneda.leyenda}}</h1>
+            <div  class="container-moneda">
+                <app-card-coin [moneda]="moneda"></app-card-coin>
+            </div>
+        </div>
+        <div class="linea"></div>
+        <div class="editarmoneda">
+            <h2>Editar <img src="./../../../assets/img/editLapiz.png"></h2>
+            <form #form="ngForm">
+                <div class="formulario">
+                        <input type="text" autocomplete="off" placeholder="Leyenda" value="moneda.Leyenda" [(ngModel)]="editMoneda.leyenda" name="leyenda">
+            
+                        <input type="text" autocomplete="off" placeholder="Símbolo" value="moneda.simbolo" [(ngModel)]="editMoneda.simbolo" name="simbolo">
+                    
+                        <input type="number" autocomplete="off" placeholder="Índice de Convertibilidad" value="moneda.simbolo" [(ngModel)]="editMoneda.ic" name="ic">
+                </div>
+                <div class="options">
+                    <button id="crear" type="submit">Confirmar</button>
+                    <button id="cancelar" type="button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+        <div class="eliminarmoneda">
+            
+        </div>
     </div>
 </div>
