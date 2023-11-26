@@ -2,7 +2,7 @@
     <div id="padding">
 
         <div id="container-favorita">
-            <button id="favorita">Favorita <img src="./../../../assets/img/star.png"></button>
+            <button id="favorita" [disabled]="monedafav.id != 0" (click)='createFav()'>Favorita <img src="./../../../assets/img/star.png"></button>
         </div>
         <div class="moneda">
             <h1>{{moneda.leyenda}}</h1>
@@ -13,7 +13,7 @@
         <div class="linea"></div>
         <div class="editarmoneda">
             <h2>Editar <img src="./../../../assets/img/editLapiz.png"></h2>
-            <form #form="ngForm">
+            <form #form="ngForm" (ngSubmit)="editCoin()">
                 <div class="formulario">
                         <input type="text" autocomplete="off" placeholder="Leyenda" value="moneda.Leyenda" [(ngModel)]="editMoneda.leyenda" name="leyenda">
             
@@ -22,13 +22,13 @@
                         <input type="number" autocomplete="off" placeholder="Índice de Convertibilidad" value="moneda.simbolo" [(ngModel)]="editMoneda.ic" name="ic">
                 </div>
                 <div class="options">
-                    <button id="crear" type="submit">Confirmar</button>
-                    <button id="cancelar" type="button">Cancelar</button>
+                    <button id="confirmar" type="submit">Confirmar</button>
                 </div>
             </form>
         </div>
-        <div class="eliminarmoneda">
-            
+        <div class="linea"></div>
+        <div class="eliminar">
+            <button id="eliminar" (click)="deleteCoin()">Elminar Moneda</button>
         </div>
     </div>
 </div>

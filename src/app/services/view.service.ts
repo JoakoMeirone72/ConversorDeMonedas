@@ -42,4 +42,14 @@ export class ViewService extends ApiService {
     const resJson = await res.json();
     return resJson;
   };
+
+  async getFavByleyenda(leyenda:string):Promise<Moneda | undefined>{
+    const res = await this.getAuth(`View/VerFavoritaByLeyenda?leyenda=${leyenda}`);
+    if (res.status === 204) {
+      return undefined;
+    }else {
+      const resJson = await res.json();
+      return resJson;
+    }
+  };
 }

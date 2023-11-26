@@ -28,6 +28,7 @@ export class CreateCoinComponent {
   onSubmit() {
     this.coinsService.create(this.moneda).then(res => {
       this.cerrar.emit();
+      this.router.navigate(['/coins'])
     });
   }
 }

@@ -48,10 +48,9 @@ export class CoinsService extends ApiService {
     return res.ok
   };
 
-  async edit(moneda:Moneda):Promise<boolean>{
+  async edit(leyenda:string, moneda:Moneda):Promise<boolean>{
     if(!moneda.id) return false;
-    const id = moneda.id
-    const url = `${API}Coin/EditarMoneda?CoinId=${id}`
+    const url = `${API}Coin/EditarMoneda?CoinId=${moneda.id}&leyenda=${leyenda}`
     const res = await fetch(url, {
       method: 'PUT',
       headers:{
@@ -64,7 +63,8 @@ export class CoinsService extends ApiService {
   };
 
   async delete(id:number):Promise<boolean>{
-    const res = await fetch(API+'Coin/EliminarMoneda/'+ id, {
+    const url = `${API}Coin/EliminarMoneda?CoinId=${id}`
+    const res = await fetch(url, {
       method: 'DELETE',
       headers:{
         Authorization: "Bearer "+this.auth.token()

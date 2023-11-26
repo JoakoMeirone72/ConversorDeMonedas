@@ -18,7 +18,7 @@
     height: 10px;
     width: 100%;
     border-bottom: 2px solid grey;
-    margin: 30px 0 30px 0;
+    margin: 45px 0 30px 0;
 }
 
 #favorita {
@@ -31,12 +31,24 @@
     font-size: 16px;
     font-weight: bolder;
     place-self: end;
+    cursor: pointer;
 
     img {
         height: 15px;
         margin-bottom: -2px;
     }
+
+    &[disabled]{
+        border: 2px solid #c2c0c0;
+        color: #c2c0c0;
+        background-color: #393c3f;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
 }
+
 
 .moneda {
     display: flex;
@@ -106,14 +118,28 @@ input::placeholder {
         border-radius: 10px;
         color: white;
         font-size: 20px;
+        cursor: pointer;
     }
 
-    #crear {   
+    #confirmar {   
         background-color: variables.$button-color;
     }
+    
+}
 
-    #cancelar {
+.eliminar {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+
+    button {
+        height: 46px;
+        width: 180px;
         background-color: variables.$cancel-button-color;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
     }
-
 }
