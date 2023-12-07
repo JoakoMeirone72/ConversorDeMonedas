@@ -62,8 +62,8 @@ export class CoinsService extends ApiService {
     return res.ok
   };
 
-  async delete(id:number):Promise<boolean>{
-    const url = `${API}Coin/EliminarMoneda?CoinId=${id}`
+  async delete(id:number, leyenda:string):Promise<boolean>{
+    const url = `${API}Coin/EliminarMoneda?CoinId=${id}&leyenda=${leyenda}`
     const res = await fetch(url, {
       method: 'DELETE',
       headers:{

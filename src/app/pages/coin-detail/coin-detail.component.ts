@@ -65,7 +65,7 @@ export class CoinDetailComponent implements OnInit {
     async deleteCoin() {
       this.activatedRoute.params.subscribe(params => {
         const id = parseFloat(params['id']);
-          this.coinsService.delete(id).then(response => {
+          this.coinsService.delete(id, this.moneda.leyenda).then(response => {
             if (response) {
               mensajeOkey('Eliminada correctamente')
               this.router.navigate(['/coins'])

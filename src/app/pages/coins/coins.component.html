@@ -2,6 +2,19 @@
     <div class="container-general">
         <div class="categoria">
             <div class="titulo">
+                <h1>Por Defecto</h1>
+            </div>
+            <div class="container-monedas">
+                <div *ngFor="let monedadefault of MonedasDefault" class="moneda">
+                    <app-card-coin [moneda]="monedadefault" (click)="dialogAddFav.showModal()"></app-card-coin>
+                    <dialog class="dialogchico" #dialogAddFav>
+                        <app-add-fav [moneda]="monedadefault" (cerrar)="dialogAddFav.close()"></app-add-fav>
+                    </dialog>
+                </div>
+            </div>
+        </div>
+        <div class="categoria">
+            <div class="titulo">
                 <h1>Favoritas <img src="./../../../assets/img/star.png"></h1>
             </div>
             <div class="container-monedas">
@@ -29,19 +42,6 @@
                     <app-card-coin [moneda]="monedausuario" [routerLink]="[monedausuario.id]"></app-card-coin>
                 </div>
                 <p class="mensajeMonedas" *ngIf="MonedasUsuario.length === 0">¡Crea tus propias <br> monedas!</p>
-            </div>
-        </div>
-        <div class="categoria">
-            <div class="titulo">
-                <h1>Por Defecto</h1>
-            </div>
-            <div class="container-monedas">
-                <div *ngFor="let monedadefault of MonedasDefault" class="moneda">
-                    <app-card-coin [moneda]="monedadefault" (click)="dialogAddFav.showModal()"></app-card-coin>
-                    <dialog class="dialogchico" #dialogAddFav>
-                        <app-add-fav [moneda]="monedadefault" (cerrar)="dialogAddFav.close()"></app-add-fav>
-                    </dialog>
-                </div>
             </div>
         </div>
     </div>
