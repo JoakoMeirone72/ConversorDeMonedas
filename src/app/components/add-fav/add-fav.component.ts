@@ -33,14 +33,19 @@ export class AddFavComponent {
 
     ngOnInit(): void {
         this.getFavByleyenda(this.moneda.leyenda);
+        const mensaje = localStorage.getItem('mensajeOkey');
+        if (mensaje) {
+          mensajeOkey(mensaje);
+          localStorage.removeItem('mensajeOkey');
+        }
       };
 
     addFav(){
       this.coinsService.createFav(this.moneda).then(res => {
         this.cerrar.emit()
         if (res) {
-          mensajeOkey('Añadida correctamente')
-          this.router.navigate(['/coins'])
+          localStorage.setItem('mensajeOkey', 'Agregada como favorita');
+          location.reload()
         } else {
           mensajeError('Error agregando moneda favorita')
         }

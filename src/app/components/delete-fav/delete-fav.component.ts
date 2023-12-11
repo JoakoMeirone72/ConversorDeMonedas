@@ -22,12 +22,20 @@ export class DeleteFavComponent {
     router = inject(Router)
     coinsService = inject(CoinsService)
 
+    ngOnInit(): void {
+        const mensaje = localStorage.getItem('mensajeOkey');
+        if (mensaje) {
+          mensajeOkey(mensaje);
+          localStorage.removeItem('mensajeOkey');
+        }
+    }
+
     deleteFav() {
         this.coinsService.deleteFav(this.moneda.id).then(res => {
             this.cerrar.emit()
             if (res) {
-                mensajeOkey('Eliminada correctamente')
-                this.router.navigate(['/coins'])
+                localStorage.setItem('mensajeOkey', 'Eliminada correctamente');
+                location.reload()
             } else {
                 mensajeError('Error eliminando moneda favorita')
             }

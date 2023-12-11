@@ -38,6 +38,8 @@ export class CoinDetailComponent implements OnInit {
     ic: 0
   }
 
+  botonDeshabilitado = false
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const id = parseFloat(params['id']);
@@ -84,6 +86,7 @@ export class CoinDetailComponent implements OnInit {
       else {
         mensajeError('Error agregando moneda')
       }
+      this.botonDeshabilitado = true
     }
 
     async getFavByleyenda(leyenda:string) {

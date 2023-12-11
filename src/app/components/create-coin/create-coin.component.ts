@@ -26,12 +26,20 @@ export class CreateCoinComponent {
     ic: 0,
   }
 
+  ngOnInit(): void {
+    const mensaje = localStorage.getItem('mensajeOkey');
+        if (mensaje) {
+          mensajeOkey(mensaje);
+          localStorage.removeItem('mensajeOkey');
+        }
+  };
+
   onSubmit() {
     this.coinsService.create(this.moneda).then(res => {
       this.cerrar.emit();
       if (res) {
-        mensajeOkey('Creada correctamente')
-        this.router.navigate(['/coins'])
+        localStorage.setItem('mensajeOkey', 'Creada correctamente');
+        location.reload()
       } else {
         mensajeError('Error creando moneda')
       }

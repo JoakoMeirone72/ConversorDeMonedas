@@ -2,7 +2,7 @@
     <div id="padding">
 
         <div id="container-favorita">
-            <button id="favorita" [disabled]="monedafav.id != 0" (click)='createFav()'>Favorita <img src="./../../../assets/img/star.png"></button>
+            <button id="favorita" [disabled]="botonDeshabilitado || monedafav.id != 0" (click)='createFav()'>Favorita <img src="./../../../assets/img/star.png"></button>
         </div>
         <div class="moneda">
             <h1>{{moneda.leyenda}}</h1>
