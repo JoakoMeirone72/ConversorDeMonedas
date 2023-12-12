@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Moneda } from 'src/app/interfaces/Moneda';
+import { AuthService } from 'src/app/services/auth.service';
 import { CoinsService } from 'src/app/services/coins.service';
 import { ViewService } from 'src/app/services/view.service';
 
@@ -14,6 +15,7 @@ export class HomeComponent {
   viewService = inject(ViewService);
   coinsService = inject(CoinsService);
   router = inject(Router)
+  auth = inject(AuthService)
   
   //sub + total conversiones + monedas
   
@@ -109,5 +111,11 @@ export class HomeComponent {
         this.resultado = parseFloat(resultNumber.toFixed(3))
         this.verTotalConversionesHome()
       }
+  }
+
+  //logout
+
+  Logout(){
+    this.auth.logOut()
   }
 }

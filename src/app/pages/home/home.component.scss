@@ -9,11 +9,32 @@
 }
 
 header {
-    z-index: -1;
-
+    
     #header {
+        z-index: -1;
         width: 100%;
         height: 100%;
+    }
+
+    #logout {
+        width: 35px;
+        height: 40px;
+        position: absolute;
+        margin-left: -355px;
+        margin-top: 10px;
+        background: none;
+        border: none;
+        padding: 0;
+
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    button:active {
+        transform: scale(0.9);
     }
 }
 
@@ -215,6 +236,14 @@ header {
 
                 }
 
+                .monedasfavs {
+                    justify-content: space-between;
+
+                    div {
+                        width: 15px;
+                    }
+                }
+
                 img {
                     height: 15px;
                     margin-bottom: -2px;
@@ -304,6 +333,15 @@ header {
                         margin-right: 5px;
                     }
                 }
+
+                .monedasfavs {
+                    justify-content: space-between;
+
+                    div {
+                        width: 15px;
+                    }
+                }
+
                 img {
                     height: 15px;
                     margin-bottom: -2px;
@@ -328,7 +366,6 @@ header {
                 transform: rotate(180deg);
             }
         }
-
 
     }
 
